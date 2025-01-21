@@ -5,19 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const storyGrid = document.getElementById('storyGrid');
     
     // 스토리 카드 생성 및 그리드에 추가
-    kidsData.stories.forEach(story => {
-        const card = createStoryCard(story);
+    kidsData.stories.forEach((story, index) => {
+        const card = createStoryCard(story, index + 1);
         storyGrid.appendChild(card);
     });
 });
 
-function createStoryCard(story) {
+function createStoryCard(story, number) {
     const card = document.createElement('div');
     card.className = 'story-card';
     
     // 썸네일과 내용을 포함하는 구조 생성
     card.innerHTML = `
-        <img src="${imageUrls.setThumbnails['story' + story.number]}" 
+        <img src="${imageUrls.setThumbnails['story' + number]}" 
              alt="${story.title}" 
              class="story-thumbnail">
         <div class="story-content">
