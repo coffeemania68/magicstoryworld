@@ -22,10 +22,16 @@ export default {
                 {
                     id: "ch1",
                     title: "안녕하세요!",
-                    text: "오늘은 앨리스와 함께 신기한 과학 실험을 해볼 거예요.",
+                    text: "오늘은 \"이상한 나라의 과학 실험\" 이야기를 함께 읽어볼까요?",
+                    hasGame: true,
+                    gameType: "science",
                     options: [
                         {
                             text: "좋아요!",
+                            nextChapterId: "ch2"
+                        },
+                        {
+                            text: "다음으로",
                             nextChapterId: "ch2"
                         }
                     ]
@@ -44,85 +50,39 @@ export default {
                             nextChapterId: "ch3b"
                         }
                     ]
-                },
-                {
-                    id: "ch3a",
-                    title: "무지개 실험",
-                    text: "물과 거울로 아름다운 무지개를 만들어보아요!",
-                    hasGame: true,
-                    gameType: "rainbow",
-                    options: [
-                        {
-                            text: "다음으로",
-                            nextChapterId: "ch4"
-                        }
-                    ]
-                },
-                {
-                    id: "ch4",
-                    title: "실험 성공!",
-                    text: "와! 정말 멋진 실험이었어요. 다음에 또 만나요!",
-                    options: [
-                        {
-                            text: "처음으로",
-                            nextChapterId: "ch1"
-                        }
-                    ]
                 }
             ]
         },
-         {
+        {
             id: "story2",
             title: "구미호의 신비한 학교생활",
             description: "여우 친구들과 함께하는 신기한 학교!",
             chapters: [
                 {
                     id: "ch1",
-                    title: "첫 등교날",
-                    text: "새로 전학 온 학교에는 여우 꼬리를 가진 친구들이 가득해요!",
+                    title: "안녕하세요!",
+                    text: "오늘은 \"구미호의 신비한 학교생활\" 이야기를 함께 읽어볼까요?",
+                    hasGame: true,
+                    gameType: "gumiho",
                     options: [
                         {
-                            text: "친구들과 인사하기",
+                            text: "좋아요!",
+                            nextChapterId: "ch2"
+                        },
+                        {
+                            text: "다음으로",
                             nextChapterId: "ch2"
                         }
                     ]
                 },
                 {
                     id: "ch2",
-                    title: "특별한 수업",
-                    text: "오늘은 요술 부리기 수업이 있어요. 어떤 마법을 배워볼까요?",
+                    title: "첫 등교날",
+                    text: "새로 전학 온 학교에는 여우 꼬리를 가진 친구들이 가득해요!",
                     options: [
                         {
-                            text: "변신 마법",
-                            nextChapterId: "ch3a"
-                        },
-                        {
-                            text: "도깨비불 마법",
-                            nextChapterId: "ch3b"
-                        }
-                    ]
-                },
-                {
-                    id: "ch3a",
-                    title: "변신 마법 수업",
-                    text: "나뭇잎으로 예쁜 꽃을 만들어보아요!",
-                    hasGame: true,
-                    gameType: "transform",
-                    options: [
-                        {
-                            text: "마법 시작하기",
-                            nextChapterId: "ch4"
-                        }
-                    ]
-                },
-                {
-                    id: "ch4",
-                    title: "즐거운 하루",
-                    text: "신기한 마법도 배우고 새 친구도 사귀었어요. 내일도 즐거운 학교생활이 기다리고 있어요!",
-                    options: [
-                        {
-                            text: "처음으로",
-                            nextChapterId: "ch1"
+                            text: "친구들과 인사하기",
+                            nextChapterId: "ch3"
                         }
                     ]
                 }
@@ -135,51 +95,29 @@ export default {
             chapters: [
                 {
                     id: "ch1",
-                    title: "우주선 발사",
-                    text: "드디어 우주 탐험이 시작되었어요! 어디로 가볼까요?",
+                    title: "안녕하세요!",
+                    text: "오늘은 \"우주 탐험대의 모험\" 이야기를 함께 읽어볼까요?",
+                    hasGame: true,
+                    gameType: "space",
                     options: [
                         {
-                            text: "달나라로 가기",
+                            text: "좋아요!",
+                            nextChapterId: "ch2"
+                        },
+                        {
+                            text: "다음으로",
                             nextChapterId: "ch2"
                         }
                     ]
                 },
                 {
                     id: "ch2",
-                    title: "달에 도착",
-                    text: "달에 도착했어요. 무엇을 해볼까요?",
+                    title: "우주선 발사",
+                    text: "드디어 우주 탐험이 시작되었어요! 어디로 가볼까요?",
                     options: [
                         {
-                            text: "달 토끼 찾기",
-                            nextChapterId: "ch3a"
-                        },
-                        {
-                            text: "달 돌 수집하기",
-                            nextChapterId: "ch3b"
-                        }
-                    ]
-                },
-                {
-                    id: "ch3a",
-                    title: "달 토끼와의 만남",
-                    text: "달 토끼를 만났어요! 토끼와 함께 떡을 만들어볼까요?",
-                    hasGame: true,
-                    gameType: "moonCake",
-                    options: [
-                        {
-                            text: "떡 만들기",
-                            nextChapterId: "ch4"
-                        }
-                    ]
-                },
-                {
-                    id: "ch4",
-                    title: "즐거운 우주 여행",
-                    text: "달 토끼와 함께 맛있는 떡도 만들고 즐거운 시간을 보냈어요. 다음에는 어디로 여행을 떠날까요?",
-                    options: [
-                        {
-                            text: "처음으로",
-                            nextChapterId: "ch1"
+                            text: "달나라로 가기",
+                            nextChapterId: "ch3"
                         }
                     ]
                 }
