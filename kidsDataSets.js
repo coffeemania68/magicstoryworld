@@ -15,33 +15,57 @@ export default {
     },
     "stories": [
         {
-            "id": "science-wonderland",
-            "title": "이상한 나라의 과학 실험",
-            "description": "앨리스와 함께하는 신기한 과학의 세계!",
-            "thumbnail": "https://example.com/thumbnails/science-wonderland.jpg",
-            "category": "세계 동화",
-            "season": 1,
-            "number": 1,
-            "chapters": [
+            id: "story1",
+            title: "이상한 나라의 과학 실험",
+            description: "앨리스와 함께하는 신기한 과학의 세계!",
+            chapters: [
                 {
-                    "id": "chapter1",
-                    "title": "토끼굴 속 실험실",
-                    "text": "하얀 토끼를 따라 들어간 굴속에는 신기한 실험도구들이 가득했어요...",
-                    "image": "https://example.com/chapters/science-wonderland-ch1.jpg",
-                    "hasGame": true,
-                    "gameType": "puzzle",
-                    "gameData": {
-                        "type": "실험도구 맞추기",
-                        "difficulty": "easy"
-                    },
-                    "options": [
+                    id: "ch1",
+                    title: "안녕하세요!",
+                    text: "오늘은 앨리스와 함께 신기한 과학 실험을 해볼 거예요.",
+                    options: [
                         {
-                            "text": "빨간 물약 마시기",
-                            "nextChapterId": "chapter2"
+                            text: "좋아요!",
+                            nextChapterId: "ch2"
+                        }
+                    ]
+                },
+                {
+                    id: "ch2",
+                    title: "실험 준비",
+                    text: "앨리스가 실험 도구를 준비했어요. 어떤 실험을 해볼까요?",
+                    options: [
+                        {
+                            text: "무지개 만들기",
+                            nextChapterId: "ch3a"
                         },
                         {
-                            "text": "파란 물약 마시기",
-                            "nextChapterId": "chapter3"
+                            text: "풍선 로켓 만들기",
+                            nextChapterId: "ch3b"
+                        }
+                    ]
+                },
+                {
+                    id: "ch3a",
+                    title: "무지개 실험",
+                    text: "물과 거울로 아름다운 무지개를 만들어보아요!",
+                    hasGame: true,
+                    gameType: "rainbow",
+                    options: [
+                        {
+                            text: "다음으로",
+                            nextChapterId: "ch4"
+                        }
+                    ]
+                },
+                {
+                    id: "ch4",
+                    title: "실험 성공!",
+                    text: "와! 정말 멋진 실험이었어요. 다음에 또 만나요!",
+                    options: [
+                        {
+                            text: "처음으로",
+                            nextChapterId: "ch1"
                         }
                     ]
                 }
