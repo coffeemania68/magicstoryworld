@@ -2,7 +2,6 @@ import kidsData from './kidsDataSets.js';
 import imageUrls from './imageUrls.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // URL에서 스토리 ID 가져오기
     const urlParams = new URLSearchParams(window.location.search);
     const storyId = urlParams.get('id');
     
@@ -15,19 +14,56 @@ function loadStory(storyId) {
     const story = kidsData.stories.find(s => s.id === storyId);
     if (!story) return;
 
-    const storyContent = document.getElementById('storyContent');
-    const storyChoices = document.getElementById('storyChoices');
-    const gameCta = document.getElementById('gameCta');
+    const contentContainer = document.getElementById('storyContent');
+    const choicesContainer = document.getElementById('storyChoices');
+    const gameContainer = document.getElementById('gameCta');
 
-    // 스토리 내용 표시
-    storyContent.innerHTML = `
-        <h1>${story.title}</h1>
-        <p>${story.chapters[0].text}</p>
+    // 첫 페이지 렌더링 (인사)
+    renderGreeting(story, contentContainer, choicesContainer);
+}
+
+function renderGreeting(story, contentContainer, choicesContainer) {
+    contentContainer.innerHTML = `
+        <div class="greeting-page">
+            <h1>안녕하세요!</h1>
+            <p>오늘은 "${story.title}" 이야기를 함께 읽어볼까요?</p>
+        </div>
     `;
 
     // 선택지 버튼 생성
-    if (story.chapters[0].options) {
-        story.chapters[0].options.forEach(option => {
+    const button = document.createElement('button');
+    button.className = 'choice-button';
+    button.innerHTML = `
+        <span class="emoji">🌟</span>
+        좋아요!
+    `;
+    button.addEventListener('click', () => {
+        loadChapter(story, story.chapters[0].id);
+    });
+    choicesContainer.innerHTML = '';
+    choicesContainer.appendChild(button);
+}
+
+function loadChapter(story, chapterId) {
+    const chapter = story.chapters.find(ch => ch.id === chapterId);
+    if (!chapter) return;
+
+    const contentContainer = document.getElementById('storyContent');
+    const choicesContainer = document.getElementById('storyChoices');
+    const gameContainer = document.getElementById('gameCta');
+
+    // 챕터 내용 표시
+    contentContainer.innerHTML = `
+        <div class="chapter-content">
+            <h2>${chapter.title}</h2>
+            <p>${chapter.text}</p>
+        </div>
+    `;
+
+    // 선택지 버튼 생성
+    choicesContainer.innerHTML = '';
+    if (chapter.options) {
+        chapter.options.forEach(option => {
             const button = document.createElement('button');
             button.className = 'choice-button';
             button.innerHTML = `
@@ -35,16 +71,15 @@ function loadStory(storyId) {
                 ${option.text}
             `;
             button.addEventListener('click', () => {
-                // 다음 챕터로 이동
                 loadChapter(story, option.nextChapterId);
             });
-            storyChoices.appendChild(button);
+            choicesContainer.appendChild(button);
         });
     }
 
     // 게임 CTA 표시
-    if (story.chapters[0].hasGame) {
-        gameCta.innerHTML = `
+    if (chapter.hasGame) {
+        gameContainer.innerHTML = `
             <img src="${imageUrls.setThumbnails['story' + story.number]}" 
                  alt="게임 이미지" 
                  class="game-cta-image">
@@ -54,14 +89,7 @@ function loadStory(storyId) {
                 <button class="game-button">게임 시작하기</button>
             </div>
         `;
+    } else {
+        gameContainer.innerHTML = '';
     }
-}
-
-function loadChapter(story, chapterId) {
-    // 챕터 전환 로직
-    const chapter = story.chapters.find(ch => ch.id === chapterId);
-    if (!chapter) return;
-
-    // 챕터 내용 업데이트
-    // ... 챕터 전환 로직 구현
 }
