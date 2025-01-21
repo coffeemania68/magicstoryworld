@@ -1,19 +1,19 @@
 export default {
-    "seriesInfo": {
-        "title": "매직 스토리 월드",
-        "description": "신비한 이야기와 함께하는 24가지 모험!",
-        "season1": {
-            "title": "매직 스토리 월드 시즌 1",
-            "subtitle": "12가지 신비한 모험",
-            "period": "2024 상반기"
+    seriesInfo: {
+        title: "매직 스토리 월드",
+        description: "신비한 이야기와 함께하는 24가지 모험!",
+        season1: {
+            title: "매직 스토리 월드 시즌 1",
+            subtitle: "12가지 신비한 모험",
+            period: "2024 상반기"
         },
-        "season2": {
-            "title": "매직 스토리 월드 시즌 2",
-            "subtitle": "12가지 특별한 모험",
-            "period": "2024 하반기"
+        season2: {
+            title: "매직 스토리 월드 시즌 2",
+            subtitle: "12가지 특별한 모험",
+            period: "2024 하반기"
         }
     },
-    "stories": [
+    stories: [
         {
             id: "story1",
             title: "이상한 나라의 과학 실험",
@@ -71,64 +71,126 @@ export default {
                 }
             ]
         },
-        {
-            "id": "gumiho-school",
-            "title": "구미호의 신비한 학교생활",
-            "description": "여우 친구들과 함께하는 신기한 학교!",
-            "thumbnail": "https://example.com/thumbnails/gumiho-school.jpg",
-            "category": "한국 전래",
-            "season": 1,
-            "number": 2,
-            "chapters": [
+         {
+            id: "story2",
+            title: "구미호의 신비한 학교생활",
+            description: "여우 친구들과 함께하는 신기한 학교!",
+            chapters: [
                 {
-                    "id": "chapter1",
-                    "title": "첫 등교날",
-                    "text": "새로 전학 온 학교에는 여우 꼬리를 가진 친구들이 가득...",
-                    "image": "https://example.com/chapters/gumiho-school-ch1.jpg",
-                    "hasGame": true,
-                    "gameType": "matching",
-                    "gameData": {
-                        "type": "여우 친구 찾기",
-                        "difficulty": "easy"
-                    }
-                }
-            ]
-        },
-        {
-            "id": "thor-lab",
-            "title": "토르의 번개 연구소",
-            "description": "천둥의 신 토르와 함께 전기와 번개의 비밀을 알아보아요!",
-            "thumbnail": "https://example.com/thumbnails/thor-lab.jpg",
-            "category": "북유럽 신화",
-            "season": 1,
-            "number": 3,
-            "chapters": [
-                {
-                    "id": "chapter1",
-                    "title": "묠니르의 비밀",
-                    "text": "토르의 망치 묠니르에서 반짝이는 번개를 관찰하던 중...",
-                    "image": "https://example.com/chapters/thor-lab-ch1.jpg",
-                    "hasGame": true,
-                    "gameType": "action",
-                    "gameData": {
-                        "type": "번개 제어하기",
-                        "difficulty": "medium",
-                        "items": ["망치", "번개구름", "전기"]
-                    },
-                    "options": [
+                    id: "ch1",
+                    title: "첫 등교날",
+                    text: "새로 전학 온 학교에는 여우 꼬리를 가진 친구들이 가득해요!",
+                    options: [
                         {
-                            "text": "번개 실험하기",
-                            "nextChapterId": "chapter2"
+                            text: "친구들과 인사하기",
+                            nextChapterId: "ch2"
+                        }
+                    ]
+                },
+                {
+                    id: "ch2",
+                    title: "특별한 수업",
+                    text: "오늘은 요술 부리기 수업이 있어요. 어떤 마법을 배워볼까요?",
+                    options: [
+                        {
+                            text: "변신 마법",
+                            nextChapterId: "ch3a"
                         },
                         {
-                            "text": "안전 장비 착용하기",
-                            "nextChapterId": "chapter3"
+                            text: "도깨비불 마법",
+                            nextChapterId: "ch3b"
+                        }
+                    ]
+                },
+                {
+                    id: "ch3a",
+                    title: "변신 마법 수업",
+                    text: "나뭇잎으로 예쁜 꽃을 만들어보아요!",
+                    hasGame: true,
+                    gameType: "transform",
+                    options: [
+                        {
+                            text: "마법 시작하기",
+                            nextChapterId: "ch4"
+                        }
+                    ]
+                },
+                {
+                    id: "ch4",
+                    title: "즐거운 하루",
+                    text: "신기한 마법도 배우고 새 친구도 사귀었어요. 내일도 즐거운 학교생활이 기다리고 있어요!",
+                    options: [
+                        {
+                            text: "처음으로",
+                            nextChapterId: "ch1"
                         }
                     ]
                 }
             ]
         },
         {
+            id: "story3",
+            title: "우주 탐험대의 모험",
+            description: "별들 사이를 여행하는 신나는 우주 탐험!",
+            chapters: [
+                {
+                    id: "ch1",
+                    title: "우주선 발사",
+                    text: "드디어 우주 탐험이 시작되었어요! 어디로 가볼까요?",
+                    options: [
+                        {
+                            text: "달나라로 가기",
+                            nextChapterId: "ch2"
+                        }
+                    ]
+                },
+                {
+                    id: "ch2",
+                    title: "달에 도착",
+                    text: "달에 도착했어요. 무엇을 해볼까요?",
+                    options: [
+                        {
+                            text: "달 토끼 찾기",
+                            nextChapterId: "ch3a"
+                        },
+                        {
+                            text: "달 돌 수집하기",
+                            nextChapterId: "ch3b"
+                        }
+                    ]
+                },
+                {
+                    id: "ch3a",
+                    title: "달 토끼와의 만남",
+                    text: "달 토끼를 만났어요! 토끼와 함께 떡을 만들어볼까요?",
+                    hasGame: true,
+                    gameType: "moonCake",
+                    options: [
+                        {
+                            text: "떡 만들기",
+                            nextChapterId: "ch4"
+                        }
+                    ]
+                },
+                {
+                    id: "ch4",
+                    title: "즐거운 우주 여행",
+                    text: "달 토끼와 함께 맛있는 떡도 만들고 즐거운 시간을 보냈어요. 다음에는 어디로 여행을 떠날까요?",
+                    options: [
+                        {
+                            text: "처음으로",
+                            nextChapterId: "ch1"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+};
+/*
+// 추가 예정인 스토리들
+
+{
             "id": "mermaid-eco",
             "title": "인어공주의 해양 환경 교실",
             "description": "아리엘과 함께 깨끗한 바다를 만들어보아요!",
@@ -161,8 +223,11 @@ export default {
                     ]
                 }
             ]
-        },
-        {
+        }
+     ]
+};
+    
+         {
             "id": "dokkaebi-delivery",
             "title": "도깨비 마을의 특별한 심부름",
             "description": "도깨비 방망이를 든 특급 배달부의 신나는 모험!",
@@ -626,3 +691,5 @@ export default {
         }
     ]
 }
+// ...스토리 24까지
+*/
