@@ -35,6 +35,8 @@ function loadStory(storyId) {
             <span class="emoji">➡️</span> 다음으로
         </button>
     `;
+       // 게임 CTA는 첫 페이지에서 숨김
+    gameContainer.innerHTML = '';
 }
 
 function loadChapter(storyId, chapterId) {
