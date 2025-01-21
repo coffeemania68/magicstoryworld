@@ -176,22 +176,22 @@ body {
     line-height: 1.6;
 }
 
-/* 선택지 버튼 */
+/* 선택지 버튼 수정 */
 .choice-buttons {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin: 2rem auto;
-    max-width: 600px;
+    max-width: 400px;  /* 좀 더 좁게 */
     padding: 0 1rem;
 }
 
 .choice-button {
     background: white;
-    border: 2px solid var(--pastel-pink);
-    border-radius: 15px;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    border: 1px solid #ccc;  /* 테두리 색상 변경 */
+    border-radius: 8px;      /* 더 작은 라운드 */
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
     color: var(--main-text);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -200,13 +200,15 @@ body {
     gap: 0.5rem;
 }
 
-.choice-button:hover {
-    background: var(--pastel-pink);
-    transform: translateY(-3px);
+.choice-button .choice-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
 }
 
-.choice-button .emoji {
-    font-size: 1.4rem;
+.choice-button:hover {
+    background: #f5f5f5;  /* 호버 효과 변경 */
+    transform: translateY(-2px);
 }
 
 /* 게임 CTA */
