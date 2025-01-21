@@ -4,23 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>매직 스토리 월드 - 이야기</title>
+    
+    <!-- 폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    <div class="story-container">
-        <div class="story-content-wrapper">
-            <div id="storyContent">
-                <!-- 스토리 내용이 여기에 동적으로 추가됩니다 -->
-            </div>
-            <div id="storyChoices" class="choice-buttons">
-                <!-- 선택지 버튼들이 여기에 동적으로 추가됩니다 -->
-            </div>
-            <div id="gameCta" class="game-cta">
-                <!-- 게임 CTA가 여기에 동적으로 추가됩니다 -->
-            </div>
+<body class="story-page">
+    <div class="container">
+        <div id="storyContent" class="story-content-wrapper">
+            <!-- 스토리 내용이 여기에 동적으로 추가됩니다 -->
         </div>
+        
+        <div id="storyChoices" class="choice-buttons">
+            <!-- 선택지 버튼들이 여기에 동적으로 추가됩니다 -->
+        </div>
+        
+        <div id="gameCta" class="game-cta">
+            <!-- 게임 CTA가 여기에 동적으로 추가됩니다 -->
+        </div>
+
+        <button id="homeButton" class="home-button" onclick="window.location.href='index.html'">
+            <span class="emoji">🏠</span> 처음으로
+        </button>
     </div>
-    <script type="module" src="story.js"></script>
+
+    <script type="module" src="./story.js"></script>
 </body>
 </html>
