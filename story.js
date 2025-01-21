@@ -28,10 +28,10 @@ function loadStory(storyId) {
 
     // 선택지 버튼 생성
     choicesContainer.innerHTML = `
-        <button class="choice-button" onclick="loadChapter('${story.id}', '${story.chapters[0].id}')">
+        <button class="choice-button" id="btnLike">
             <span class="emoji">👍</span> 좋아요!
         </button>
-        <button class="choice-button" onclick="loadChapter('${story.id}', '${story.chapters[0].id}')">
+        <button class="choice-button" id="btnNext">
             <span class="emoji">➡️</span> 다음으로
         </button>
     `;
@@ -43,7 +43,8 @@ function loadStory(storyId) {
     document.getElementById('btnNext').addEventListener('click', () => {
         loadChapter(story.id, story.chapters[0].id);
     });
-       // 게임 CTA는 첫 페이지에서 숨김
+
+    // 게임 CTA는 첫 페이지에서 숨김
     gameContainer.innerHTML = '';
 }
 
