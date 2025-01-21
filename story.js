@@ -19,32 +19,26 @@ function loadStory(storyId) {
     const gameContainer = document.getElementById('gameCta');
 
     // 첫 페이지 렌더링 (인사)
-    renderGreeting(story, contentContainer, choicesContainer);
-}
-
-function renderGreeting(story, contentContainer, choicesContainer) {
     contentContainer.innerHTML = `
-        <div class="greeting-page">
-            <h1>안녕하세요!</h1>
+        <div class="chapter-content">
+            <h2>안녕하세요!</h2>
             <p>오늘은 "${story.title}" 이야기를 함께 읽어볼까요?</p>
         </div>
     `;
 
     // 선택지 버튼 생성
-    const button = document.createElement('button');
-    button.className = 'choice-button';
-    button.innerHTML = `
-        <span class="emoji">🌟</span>
-        좋아요!
+    choicesContainer.innerHTML = `
+        <button class="choice-button" onclick="loadChapter('${story.id}', '${story.chapters[0].id}')">
+            <span class="emoji">👍</span> 좋아요!
+        </button>
+        <button class="choice-button" onclick="loadChapter('${story.id}', '${story.chapters[0].id}')">
+            <span class="emoji">➡️</span> 다음으로
+        </button>
     `;
-    button.addEventListener('click', () => {
-        loadChapter(story, story.chapters[0].id);
-    });
-    choicesContainer.innerHTML = '';
-    choicesContainer.appendChild(button);
 }
 
-function loadChapter(story, chapterId) {
+function loadChapter(storyId, chapterId) {
+    const story = kidsData.stories.find(s => s.id === storyId);
     const chapter = story.chapters.find(ch => ch.id === chapterId);
     if (!chapter) return;
 
@@ -61,20 +55,12 @@ function loadChapter(story, chapterId) {
     `;
 
     // 선택지 버튼 생성
-    choicesContainer.innerHTML = '';
     if (chapter.options) {
-        chapter.options.forEach(option => {
-            const button = document.createElement('button');
-            button.className = 'choice-button';
-            button.innerHTML = `
-                <span class="emoji">🌟</span>
-                ${option.text}
-            `;
-            button.addEventListener('click', () => {
-                loadChapter(story, option.nextChapterId);
-            });
-            choicesContainer.appendChild(button);
-        });
+        choicesContainer.innerHTML = chapter.options.map(option => `
+            <button class="choice-button" onclick="loadChapter('${storyId}', '${option.nextChapterId}')">
+                <span class="emoji">${option.emoji || '✨'}</span> ${option.text}
+            </button>
+        `).join('');
     }
 
     // 게임 CTA 표시
