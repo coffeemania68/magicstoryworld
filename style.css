@@ -1,0 +1,134 @@
+/* 기본 스타일 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --light-bg: #F0F6FF;
+    --royal-gold: #D4AF37;
+    --soft-navy: #334B77;
+    --bright-white: #FFFFFF;
+    --soft-gold: #F2D584;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, var(--light-bg), #FFFFFF);
+    color: var(--soft-navy);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+.main-header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--royal-gold), var(--soft-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--soft-navy);
+    opacity: 0.9;
+}
+
+/* 스토리 그리드 */
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 20px;
+}
+
+/* 스토리 카드 */
+.story-card {
+    background: var(--bright-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-8px);
+}
+
+.story-thumbnail {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.story-content {
+    padding: 16px;
+}
+
+.story-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--soft-navy);
+}
+
+.story-description {
+    font-size: 0.9rem;
+    color: var(--soft-navy);
+    opacity: 0.8;
+}
+
+/* 푸터 스타일 */
+.main-footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--soft-navy);
+    opacity: 0.7;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .story-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+        padding: 16px;
+    }
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.story-card {
+    animation: fadeIn 0.5s ease forwards;
+}
