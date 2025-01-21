@@ -38,27 +38,14 @@ function loadStory(storyId) {
      
     // 이벤트 리스너 추가
     document.getElementById('btnLike').addEventListener('click', () => {
-        loadChapter(story.id, story.chapters[1].id); // 다음 챕터로 이동
+        loadChapter(story.id, story.chapters[1].id);
     });
     document.getElementById('btnNext').addEventListener('click', () => {
-        loadChapter(story.id, story.chapters[1].id); // 다음 챕터로 이동
+        loadChapter(story.id, story.chapters[1].id);
     });
 
-    // 게임 CTA 표시 (첫 챕터에 hasGame이 있는 경우)
-    if (story.chapters[0].hasGame) {
-        gameContainer.innerHTML = `
-            <img src="${imageUrls.setThumbnails[story.id]}" 
-                 alt="게임 이미지" 
-                 class="game-cta-image">
-            <div class="game-cta-content">
-                <h3>재미있는 게임하기</h3>
-                <p>이야기와 함께 게임도 즐겨보세요!</p>
-                <button class="game-button">게임 시작하기</button>
-            </div>
-        `;
-    } else {
-        gameContainer.innerHTML = '';
-    }
+    // 첫 페이지에서는 게임 CTA 숨김
+    gameContainer.innerHTML = '';
 }
 
 function loadChapter(storyId, chapterId) {
@@ -81,16 +68,16 @@ function loadChapter(storyId, chapterId) {
     // 선택지 버튼 생성
     if (chapter.options) {
         choicesContainer.innerHTML = chapter.options.map(option => `
-            <button class="choice-button" onclick="loadChapter('${storyId}', '${option.nextChapterId}')">
-                <span class="emoji">${option.emoji || '✨'}</span> ${option.text}
+            <button class="choice-button">
+                <span class="emoji">✨</span> ${option.text}
             </button>
         `).join('');
     }
 
-    // 게임 CTA 표시
-    if (chapter.hasGame) {
+    // 두 번째 페이지부터 게임 CTA 표시
+    if (chapter.id === 'ch2') {  // 두 번째 챕터인 경우에만
         gameContainer.innerHTML = `
-            <img src="${imageUrls.setThumbnails['story' + story.number]}" 
+            <img src="${imageUrls.setThumbnails[story.id]}" 
                  alt="게임 이미지" 
                  class="game-cta-image">
             <div class="game-cta-content">
