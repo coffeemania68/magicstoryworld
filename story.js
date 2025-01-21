@@ -21,8 +21,8 @@ function loadStory(storyId) {
     // 첫 페이지 렌더링 (인사)
     contentContainer.innerHTML = `
         <div class="chapter-content">
-            <h2>안녕하세요!</h2>
-            <p>오늘은 "${story.title}" 이야기를 함께 읽어볼까요?</p>
+            <h2>${story.chapters[0].title}</h2>
+            <p>${story.chapters[0].text}</p>
         </div>
     `;
 
@@ -38,14 +38,27 @@ function loadStory(storyId) {
      
     // 이벤트 리스너 추가
     document.getElementById('btnLike').addEventListener('click', () => {
-        loadChapter(story.id, story.chapters[0].id);
+        loadChapter(story.id, story.chapters[1].id); // 다음 챕터로 이동
     });
     document.getElementById('btnNext').addEventListener('click', () => {
-        loadChapter(story.id, story.chapters[0].id);
+        loadChapter(story.id, story.chapters[1].id); // 다음 챕터로 이동
     });
 
-    // 게임 CTA는 첫 페이지에서 숨김
-    gameContainer.innerHTML = '';
+    // 게임 CTA 표시 (첫 챕터에 hasGame이 있는 경우)
+    if (story.chapters[0].hasGame) {
+        gameContainer.innerHTML = `
+            <img src="${imageUrls.setThumbnails[story.id]}" 
+                 alt="게임 이미지" 
+                 class="game-cta-image">
+            <div class="game-cta-content">
+                <h3>재미있는 게임하기</h3>
+                <p>이야기와 함께 게임도 즐겨보세요!</p>
+                <button class="game-button">게임 시작하기</button>
+            </div>
+        `;
+    } else {
+        gameContainer.innerHTML = '';
+    }
 }
 
 function loadChapter(storyId, chapterId) {
