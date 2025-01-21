@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>무지개 만들기 게임</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+        }
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .game-title {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .game-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .back-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="game-title">무지개 만들기 게임</h1>
+        <div class="game-content">
+            <p>여기에 게임이 들어갈 거예요!</p>
+            <button class="back-button" onclick="goBackToStory()">이야기로 돌아가기</button>
+        </div>
+    </div>
+
+    <script>
+        function goBackToStory() {
+            // URL에서 story 파라미터 가져오기
+            const urlParams = new URLSearchParams(window.location.search);
+            const storyId = urlParams.get('story');
+            
+            // 스토리 페이지로 돌아가기
+            window.location.href = `/story.html?id=${storyId}`;
+        }
+    </script>
+</body>
+</html>
