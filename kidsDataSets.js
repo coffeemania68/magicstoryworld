@@ -12,7 +12,7 @@ export default {
             subtitle: "12가지 특별한 모험",
             period: "2024 하반기"
         }
-    },
+     },
     stories: [
         {
             id: "story1",
@@ -23,8 +23,6 @@ export default {
                     id: "ch1",
                     title: "안녕하세요!",
                     text: "오늘은 \"이상한 나라의 과학 실험\" 이야기를 함께 읽어볼까요?",
-                    hasGame: true,
-                    gameType: "science",
                     options: [
                         {
                             text: "좋아요!",
@@ -50,6 +48,54 @@ export default {
                             nextChapterId: "ch3b"
                         }
                     ]
+                },
+                {
+                    id: "ch3a",
+                    title: "무지개 실험",
+                    text: "물과 거울로 아름다운 무지개를 만들어보아요!",
+                    hasGame: true,
+                    gameType: "rainbow",
+                    options: [
+                        {
+                            text: "실험 시작하기",
+                            nextChapterId: "ch4a"
+                        }
+                    ]
+                },
+                {
+                    id: "ch3b",
+                    title: "풍선 로켓 실험",
+                    text: "풍선으로 날아가는 로켓을 만들어보아요!",
+                    hasGame: true,
+                    gameType: "rocket",
+                    options: [
+                        {
+                            text: "실험 시작하기",
+                            nextChapterId: "ch4b"
+                        }
+                    ]
+                },
+                {
+                    id: "ch4a",
+                    title: "무지개 실험 성공!",
+                    text: "와! 정말 예쁜 무지개가 만들어졌어요. 다음에 또 만나요!",
+                    options: [
+                        {
+                            text: "처음으로",
+                            nextChapterId: "ch1"
+                        }
+                    ]
+                },
+                {
+                    id: "ch4b",
+                    title: "로켓 실험 성공!",
+                    text: "우리가 만든 로켓이 멋지게 날아갔어요. 다음에 또 만나요!",
+                    options: [
+                        {
+                            text: "처음으로",
+                            nextChapterId: "ch1"
+                        }
+                    ]
                 }
             ]
         },
@@ -62,8 +108,6 @@ export default {
                     id: "ch1",
                     title: "안녕하세요!",
                     text: "오늘은 \"구미호의 신비한 학교생활\" 이야기를 함께 읽어볼까요?",
-                    hasGame: true,
-                    gameType: "gumiho",
                     options: [
                         {
                             text: "좋아요!",
@@ -85,6 +129,45 @@ export default {
                             nextChapterId: "ch3"
                         }
                     ]
+                },
+                {
+                    id: "ch3",
+                    title: "특별한 수업",
+                    text: "오늘은 요술 부리기 수업이 있어요. 어떤 마법을 배워볼까요?",
+                    hasGame: true,
+                    gameType: "magic",
+                    options: [
+                        {
+                            text: "변신 마법",
+                            nextChapterId: "ch4a"
+                        },
+                        {
+                            text: "도깨비불 마법",
+                            nextChapterId: "ch4b"
+                        }
+                    ]
+                },
+                {
+                    id: "ch4a",
+                    title: "변신 마법 성공!",
+                    text: "나뭇잎이 예쁜 꽃으로 변했어요. 다음에 또 만나요!",
+                    options: [
+                        {
+                            text: "처음으로",
+                            nextChapterId: "ch1"
+                        }
+                    ]
+                },
+                {
+                    id: "ch4b",
+                    title: "도깨비불 마법 성공!",
+                    text: "반짝반짝 예쁜 도깨비불이 만들어졌어요. 다음에 또 만나요!",
+                    options: [
+                        {
+                            text: "처음으로",
+                            nextChapterId: "ch1"
+                        }
+                    ]
                 }
             ]
         },
@@ -97,8 +180,6 @@ export default {
                     id: "ch1",
                     title: "안녕하세요!",
                     text: "오늘은 \"우주 탐험대의 모험\" 이야기를 함께 읽어볼까요?",
-                    hasGame: true,
-                    gameType: "space",
                     options: [
                         {
                             text: "좋아요!",
@@ -117,7 +198,59 @@ export default {
                     options: [
                         {
                             text: "달나라로 가기",
-                            nextChapterId: "ch3"
+                            nextChapterId: "ch3a"
+                        },
+                        {
+                            text: "화성으로 가기",
+                            nextChapterId: "ch3b"
+                        }
+                    ]
+                },
+                {
+                    id: "ch3a",
+                    title: "달나라 탐험",
+                    text: "달에 도착했어요! 달 토끼를 찾아볼까요?",
+                    hasGame: true,
+                    gameType: "moon",
+                    options: [
+                        {
+                            text: "달 토끼 찾기",
+                            nextChapterId: "ch4a"
+                        }
+                    ]
+                },
+                {
+                    id: "ch3b",
+                    title: "화성 탐험",
+                    text: "화성에 도착했어요! 신기한 암석을 찾아볼까요?",
+                    hasGame: true,
+                    gameType: "mars",
+                    options: [
+                        {
+                            text: "암석 찾기",
+                            nextChapterId: "ch4b"
+                        }
+                    ]
+                },
+                {
+                    id: "ch4a",
+                    title: "달 토끼와의 만남",
+                    text: "달 토끼를 만나서 맛있는 떡도 먹었어요. 다음에 또 만나요!",
+                    options: [
+                        {
+                            text: "처음으로",
+                            nextChapterId: "ch1"
+                        }
+                    ]
+                },
+                {
+                    id: "ch4b",
+                    title: "화성 탐험 성공",
+                    text: "반짝반짝 빛나는 화성 암석을 발견했어요. 다음에 또 만나요!",
+                    options: [
+                        {
+                            text: "처음으로",
+                            nextChapterId: "ch1"
                         }
                     ]
                 }
