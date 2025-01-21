@@ -35,6 +35,14 @@ function loadStory(storyId) {
             <span class="emoji">➡️</span> 다음으로
         </button>
     `;
+     
+    // 이벤트 리스너 추가
+    document.getElementById('btnLike').addEventListener('click', () => {
+        loadChapter(story.id, story.chapters[0].id);
+    });
+    document.getElementById('btnNext').addEventListener('click', () => {
+        loadChapter(story.id, story.chapters[0].id);
+    });
        // 게임 CTA는 첫 페이지에서 숨김
     gameContainer.innerHTML = '';
 }
